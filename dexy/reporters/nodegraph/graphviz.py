@@ -37,4 +37,3 @@ class Graphviz(Reporter):
         self.create_cache_reports_dir()
         with open(self.report_file(), "w") as f:
             f.write("\n".join(graph))
-

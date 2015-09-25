@@ -88,16 +88,17 @@ libreoffice:
 fdp:
     added-in-version: "1.0.7"
     class: SubprocessExtToFormatFilter
-    help: Renders .dot files to either PNG or PDF images using fdp.
+    help: Renders .dot files to either PNG, SVG or PDF images using fdp.
     tags: [dot, image, pdf]
     input-extensions: [.dot]
-    output-extensions: [.png, .pdf]
+    output-extensions: [.png, .pdf, .svg]
     executable: fdp
     version-command: fdp -V
     format-specifier: '-T'
     ext-to-format:
            .png: png
            .pdf: pdf
+           .svg: svg
     command-string: '%(prog)s %(format)s -o"%(output_file)s" "%(script_file)s"'
     output: True
 
@@ -593,16 +594,17 @@ bw|bwconv:
 
 dot|graphviz:
     class: SubprocessExtToFormatFilter
-    help: Renders .dot files to either PNG or PDF images.
+    help: Renders .dot files to either PNG, SVG or PDF images.
     tags: [dot, image, pdf]
     input-extensions: [.dot, .nto]
-    output-extensions: [.png, .pdf]
+    output-extensions: [.png, .svg, .pdf]
     executable: dot
     version-command: dot -V
     format-specifier: '-T'
     ext-to-format:
            .png: png
            .pdf: pdf
+           .svg: svg
     command-string: '%(prog)s %(format)s %(args)s -o"%(output_file)s" "%(script_file)s"'
     output: True
 
